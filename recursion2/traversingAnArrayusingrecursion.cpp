@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+#include<vector>
+// void display(int arr[],int n,int idx){
+//     if(idx==n) return;
+//     cout<<arr[idx]<<" ";
+//     display(arr,n,idx+1);
+// }
+void display2(vector<int>& v,int idx){
+    if(idx==v.size()) return;
+    cout<<v[idx]<<" ";
+    display2(v,idx+1);
+}
+int main(){
+    int arr[]={1,5,76,8,9,2};
+    int n= sizeof(arr)/sizeof(arr[0]);
+    // cout<<n;
+    // for(int i=0;i<n;i++){
+    //     cout<<arr[i]<<" ";
+
+    // }
+    // for(int element:arr){
+    //     cout<<element<<" ";
+
+    // }
+    vector<int> v(n);
+    for(int i=0;i<n;i++){
+        v[i] = arr[i];
+    }
+    display2(v,0);
+
+}
