@@ -1,39 +1,82 @@
-#include<iostream>
+
+#include <iostream>
 using namespace std;
-class Cricketer{
-    public:
-    char name;
-    int age;
-    int numberOfTestMaches;
-    int averagescore;
 
-};
-int main(){
-    cout<<"\n\n\n";
-    Cricketer virat;
-    virat.name='V';
-    virat.age=45;
-    virat.numberOfTestMaches=100;
-    virat.averagescore=45;
+class Stack
+{
+    int arr[100];
+    int idx;
 
-    Cricketer dhoni;
-    dhoni.name='D';
-    dhoni.age=45;
-    dhoni.numberOfTestMaches=100;
-    dhoni.averagescore=45;
-
-    for( int i=0;i<2;i++){
-        Cricketer *cricketer = new Cricketer;
-        cricketer->name;
-        cin>> 
+public:
+    Stack(){
+        idx = -1;
     }
-    Cricketer cricketers[2] ={virat,dhoni};
 
-    for( int i=0;i<2;i++){
-        cout<<cricketers[i].name<<endl;
-        cout<<cricketers[i].age<<endl;
-        cout<<cricketers[i].numberOfTestMaches<<endl;
-        cout<<cricketers[i].averagescore<<endl;
-}
-}
+    // Insert element
+    void push(int val){
+        if (idx == 99){
+            cout << "Stack Overflow\n";
+            return;
+        }
 
+        idx++;
+        arr[idx] = val;
+    }
+
+    // Remove top element
+    void pop(){
+        if (idx == -1){
+            cout << "Stack Underflow\n";
+            return;
+        }
+
+        idx--;
+    }
+
+    // Return top element
+    int top(){
+        if (idx == -1)
+            return -1;
+
+        return arr[idx];
+    }
+
+    // Check empty
+    bool empty(){
+        return idx == -1;
+    }
+
+    // Return size
+    int size(){
+        return idx + 1;
+    }
+
+    // Print stack
+    void display({
+        for (int i = idx; i >= 0; i--)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
+};
+
+int main(){
+    Stack st;
+
+    st.push(10);
+    st.push(20);
+    st.push(30);
+    st.push(40);
+
+    st.display();
+
+    cout << "Top: " << st.top() << endl;
+
+    st.pop();
+
+    cout << "After pop: ";
+    st.display();
+
+    return 0;
+}
