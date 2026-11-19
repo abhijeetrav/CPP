@@ -46,35 +46,23 @@ int main()
     {
 
         // Check if character is a digit
-        if (s[i] >= '0' && s[i] <= '9')
-        {
+        if (s[i] >= '0' && s[i] <= '9'){
             val.push(s[i] - '0');
         }
-
-        else
-        {
+        else{
             // Check operator priority
-            if (op.empty() || prio(s[i]) > prio(op.top()))
-            {
+            if (op.empty() || prio(s[i]) > prio(op.top())){
                 op.push(s[i]);
             }
-
-            else
-            {
-                while (!op.empty() && prio(s[i]) <= prio(op.top()))
-                {
-
+            else{
+                while (!op.empty() && prio(s[i]) <= prio(op.top())){
                     char ch = op.top();
                     op.pop();
-
                     int val2 = val.top();
                     val.pop();
-
                     int val1 = val.top();
                     val.pop();
-
                     int ans = solve(val2, val1, ch);
-
                     val.push(ans);
                 }
 
